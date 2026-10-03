@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-row">
+                <div>
+                    <h1><i class="fa-solid fa-palette"></i> CSS Generator</h1>
+                    <p>Настройте градиент в реальном времени</p>
+                </div>
+                <button id="themeToggle" class="theme-btn" aria-label="Переключить тему">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="controls controls-grid">
+            <div class="control-group">
+                <label for="color1">Цвет 1</label>
+                <input type="color" id="color1" value="#ff6b6b">
+            </div>
+            <div class="control-group">
+                <label for="color2">Цвет 2</label>
+                <input type="color" id="color2" value="#4ecdc4">
+            </div>
+            <div class="control-group">
+                <label for="direction">Направление</label>
+                <select id="direction">
+                    <option value="to right">Слева направо</option>
+                    <option value="to bottom">Сверху вниз</option>
+                    <option value="135deg">По диагонали</option>
+                    <option value="to top right">В верхний правый</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="radius">Радиус (px)</label>
+                <input type="range" id="radius" min="0" max="100" value="20">
+                <span id="radiusValue">20px</span>
+            </div>
+            <div class="control-group">
+                <label for="textColor">Цвет текста</label>
+                <input type="color" id="textColor" value="#ffffff">
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <div class="preview-box" id="previewBox">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <p>Результат отображается здесь</p>
+            </div>
+
+            <div class="snippets-grid">
+                <div id="bg-snippet" class="snippet-content active">
+                    <textarea class="snippet-text" readonly></textarea>
+                    <button class="copy-snippet-btn"><i class="fa-solid fa-copy"></i> Копировать</button>
+                </div>
+                <div id="border-snippet" class="snippet-content">
+                    <textarea class="snippet-text" readonly></textarea>
+                    <button class="copy-snippet-btn"><i class="fa-solid fa-copy"></i> Копировать</button>
+                </div>
+                <div id="text-snippet" class="snippet-content">
+                    <textarea class="snippet-text" readonly></textarea>
+                    <button class="copy-snippet-btn"><i class="fa-solid fa-copy"></i> Копировать</button>
+                </div>
+            </div>
+
+            <button id="copyFullBtn" class="full-copy-btn"><i class="fa-solid fa-code"></i> Скопировать весь CSS</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

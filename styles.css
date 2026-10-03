@@ -1,0 +1,312 @@
+:root {
+    --bg-main: #f5f7fa;
+    --text-dark: #2d3436;
+    --text-medium: #636e72;
+    --text-light: #b2bec3;
+    --border-light: #dfe6e9;
+    --card-bg: #ffffff;
+    --primary: #0984e3;
+    --success: #00b894;
+    
+    --container-padding: 30px;
+    --control-gap: 20px;
+    --radius-size: 15px;
+    --btn-height: 52px;
+}
+
+.dark-mode {
+    --bg-main: #1e272e;
+    --text-dark: #dfe6e9;
+    --text-medium: #b2bec3;
+    --text-light: #636e72;
+    --border-light: #444e5a;
+    --card-bg: #27323b;
+    --primary: #3498db;
+    --success: #00b894;
+}
+
+html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: var(--container-padding);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: var(--radius-size);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: calc(var(--container-padding) * 1.2) var(--container-padding);
+    text-align: center;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+header p {
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+.theme-btn {
+    background: transparent;
+    border: 2px solid var(--border-light);
+    color: var(--text-dark);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background: var(--border-light);
+    transform: rotate(90deg);
+}
+
+.dark-mode .theme-btn {
+    color: var(--text-dark);
+    border-color: var(--border-light);
+}
+
+.controls-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--control-gap);
+    padding: var(--container-padding);
+    background: #f8f9fa;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.control-group {
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input[type="color"],
+select,
+input[type="range"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: var(--card-bg);
+    cursor: pointer;
+    min-height: 44px;
+}
+
+input[type="range"] {
+    height: 8px;
+    border-radius: 4px;
+    accent-color: var(--primary);
+}
+
+.preview-section {
+    padding: var(--container-padding);
+}
+
+.preview-box {
+    width: 100%;
+    min-height: 240px;
+    border: 3px dashed var(--border-light);
+    border-radius: var(--radius-size);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: var(--card-bg);
+}
+
+.preview-box i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.snippets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.snippet-content {
+    display: none;
+}
+
+.snippet-content.active {
+    display: block;
+}
+
+.snippet-text {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    background: var(--card-bg);
+    color: var(--text-dark);
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+.copy-snippet-btn, .full-copy-btn {
+    width: 100%;
+    padding: 0 20px;
+    min-height: var(--btn-height);
+    background: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+    border-radius: var(--radius-size);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.copy-snippet-btn:focus-visible, .full-copy-btn:focus-visible {
+    outline: 2px solid #ffd700;
+    outline-offset: 2px;
+}
+
+.copy-snippet-btn:hover:not(:disabled), .full-copy-btn:hover:not(:disabled) {
+    background: #0769b0;
+    border-color: #0769b0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(9, 132, 227, 0.3);
+}
+
+.copy-snippet-btn.copied, .full-copy-btn.copied {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.full-copy-btn {
+    margin-top: 20px;
+    background: #2d3436;
+    border-color: #2d3436;
+}
+
+.full-copy-btn:hover {
+    background: #353b48;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --container-padding: 20px;
+        --control-gap: 15px;
+        --btn-height: 48px;
+    }
+    .container {
+        border-radius: 12px;
+    }
+    .preview-box {
+        min-height: 220px;
+    }
+    .snippets-grid {
+        gap: 20px;
+    }
+    .theme-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --container-padding: 15px;
+        --control-gap: 12px;
+        --btn-height: 56px;
+    }
+    body {
+        padding: 10px;
+    }
+    .container {
+        border-radius: 10px;
+    }
+    header {
+        padding: 20px 15px;
+    }
+    .header-row {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .theme-btn {
+        margin-left: 0;
+    }
+    .controls-grid {
+        padding: 15px;
+    }
+    .control-group {
+        flex-basis: 100%;
+    }
+    .preview-box {
+        min-height: 200px;
+        font-size: 0.95rem;
+    }
+    .preview-box i {
+        font-size: 2rem;
+    }
+    .snippets-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .snippet-text {
+        min-height: 110px;
+        font-size: 0.8rem;
+        border-radius: 10px;
+    }
+    .copy-snippet-btn, .full-copy-btn {
+        font-size: 0.9rem;
+        min-height: var(--btn-height);
+        border-radius: 12px;
+        gap: 12px;
+    }
+}
